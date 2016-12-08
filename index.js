@@ -134,7 +134,7 @@ HttpTemphum.prototype = {
 
         if(this.air !== false){
           airService = new Service.AirSensor(this.name);
-          AirService
+          airService
                   .getCharacteristic(Characteristic.CurrentRelativeAir)
                   .on('get', this.getStateAir.bind(this));
           services.push(AirService);
@@ -142,7 +142,7 @@ HttpTemphum.prototype = {
 
         if(this.noisy !== false){
           noisyService = new Service.NoisySensor(this.name);
-          NoisyService
+          noisyService
                   .getCharacteristic(Characteristic.CurrentRelativeNoisy)
                   .on('get', this.getStateNoisy.bind(this));
           services.push(NoisyService);
@@ -150,7 +150,7 @@ HttpTemphum.prototype = {
 
         if(this.light !== false){
           lightService = new Service.LightSensor(this.name);
-          LightService
+          lightService
                   .getCharacteristic(Characteristic.CurrentRelativeLight)
                   .on('get', this.getStateLight.bind(this));
           services.push(LightService);
