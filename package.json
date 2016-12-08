@@ -1,6 +1,6 @@
 {
   "name": "homebridge-httptemperaturehumidity",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "https plugin for homebridge",
   "license": "ISC",
   "keywords": [
@@ -11,11 +11,11 @@
     "homebridge": ">=0.2.0"
   },
   "author": {
-    "name": "Luca Critelli"
+    "name": "Anton Ustyugov"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lucacri/homebridge-http-temperature-humidity.git"
+    "url": "git@github.com:basic-system/homebridge-http-temperature-humidity.git"
   },
   "dependencies": {
     "sync-request": "^2.1.0"
