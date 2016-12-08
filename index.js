@@ -3,6 +3,9 @@ var request = require('sync-request');
 
 var temperatureService;
 var humidityService;
+var AirService;
+var NoisyService;
+var LightService;
 var url;
 var humidity = 0;
 var temperature = 0;
