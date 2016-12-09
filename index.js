@@ -81,11 +81,11 @@ HttpTemphum.prototype = {
             if(this.humidity !== false)
                 humidityService.setCharacteristic(Characteristic.CurrentRelativeHumidity, info.humidity);
             if(this.air !== false)
-                airService.setCharacteristic(Characteristic.CurrentRelativeAir, info.air);
-            if(this.noisy !== false)
-                noisyService.setCharacteristic(Characteristic.CurrentRelativeNoisy, info.noisy);
+                airService.setCharacteristic(Characteristic.AirQuality, info.air);
+			//if(this.noisy !== false)
+			//    noisyService.setCharacteristic(Characteristic.Volume, info.noisy * 20);
             if(this.light !== false)
-                lightService.setCharacteristic(Characteristic.CurrentRelativeLight, info.light);
+                lightService.setCharacteristic(Characteristic.CurrentAmbientLightLevel, info.light * 20000);
 
             this.log(res.body);
             this.log(info);
@@ -133,25 +133,25 @@ HttpTemphum.prototype = {
         }
 
         if(this.air !== false){
-          airService = new Service.AirSensor(this.name);
+          airService = new Service.AirQualitySensor(this.name);
           airService
-                  .getCharacteristic(Characteristic.CurrentRelativeAir)
+                  .getCharacteristic(Characteristic.AirQuality)
                   .on('get', this.getStateAir.bind(this));
           services.push(AirService);
         }
 
-        if(this.noisy !== false){
-          noisyService = new Service.NoisySensor(this.name);
-          noisyService
-                  .getCharacteristic(Characteristic.CurrentRelativeNoisy)
-                  .on('get', this.getStateNoisy.bind(this));
-          services.push(NoisyService);
-        }
+		//        if(this.noisy !== false){
+		//        noisyService = new Service.NoisySensor(this.name);
+		//         noisyService
+		//                 .getCharacteristic(Characteristic.Volume)
+		//         .on('get', this.getStateNoisy.bind(this));
+		// services.push(NoisyService);
+		//}
 
         if(this.light !== false){
           lightService = new Service.LightSensor(this.name);
           lightService
-                  .getCharacteristic(Characteristic.CurrentRelativeLight)
+                  .getCharacteristic(Characteristic.CurrentAmbientLightLevel)
                   .on('get', this.getStateLight.bind(this));
           services.push(LightService);
         }
